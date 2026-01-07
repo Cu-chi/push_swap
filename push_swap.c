@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 14:49:25 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:24:26 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	args_checker(int ac, char **av, t_arguments *args)
 	if (ac <= 1)
 		return (0);
 	counter = 1;
-	while (av[counter][0] == '-')
+	while (counter < ac && av[counter][0] == '-')
 	{
 		if (ft_strncmp(av[counter], "--bench", 8) == 0)
 			args->bench = 1;
@@ -31,15 +31,21 @@ int	args_checker(int ac, char **av, t_arguments *args)
 			args->complex = 1;
 		else if (ft_strncmp(av[counter], "--adaptive", 11) == 0)
 			args->adaptive = 1;
+		else
+			return (0);
 		counter++;
 	}
-	return (0);
+	// TODO: create stack
+	return (1);
 }
 
 int	main(int ac, char **av)
 {
 	t_arguments	args;
-
-	ft_printf("");
+	if (args_checker(ac, av, &args) == 0)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
 	return (0);
 }
