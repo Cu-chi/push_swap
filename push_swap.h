@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 14:39:18 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:16:25 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,18 @@
 
 typedef struct s_arguments
 {
-	char	simple;
-	char	medium;
-	char	complex;
-	char	adaptive;
-	char	bench;
-} t_arguments
+	char			simple;
+	char			medium;
+	char			complex;
+	char			adaptive;
+	char			bench;
+}					t_arguments;
+
+typedef struct s_stack
+{
+	int				value;
+	struct s_stack	*prev;
+	struct s_stack	*next;
+}					t_stack;
 
 #endif
