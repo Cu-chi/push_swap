@@ -6,15 +6,14 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:46:43 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 12:58:45 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/09 13:58:17 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static void	format_hex(t_format_list *fmt_lst, int *nb_digit,
-		int *printed)
+static void	format_hex(t_format_list *fmt_lst, int *nb_digit, int *printed)
 {
 	*nb_digit += 2;
 	if (!fmt_lst->has_pad && !fmt_lst->has_prs && !fmt_lst->has_lad)
@@ -31,7 +30,7 @@ static void	format_hex(t_format_list *fmt_lst, int *nb_digit,
 void	write_x(t_format_list *fmt_lst, int *printed, va_list *ap)
 {
 	const unsigned int	u = va_arg(*ap, unsigned);
-	int		nb_digit;
+	int					nb_digit;
 
 	if (u == 0 && fmt_lst->has_prs && fmt_lst->precision == 0)
 		return (only_format(fmt_lst, printed));
