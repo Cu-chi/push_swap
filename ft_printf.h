@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:44:08 by equentin          #+#    #+#             */
-/*   Updated: 2025/11/18 15:21:49 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:16:37 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ typedef struct s_format_list
 	int			precision; // number of precision
 	char		c; // conversion char
 	size_t		new_index; // new index of i in the loop after parse
+	int			fd;
 }				t_format_list;
 
-t_format_list	*ft_get_format(const char *s);
-int				ft_printf(const char *fmt, ...);
+t_format_list	*ft_get_format(const char *s, int fd);
+int				ft_printf(int fd, const char *fmt, ...);
 void			write_c(t_format_list *fmt_lst, int *printed, va_list *ap);
 void			write_s(t_format_list *fmt_lst, int *printed, va_list *ap);
 void			write_x(t_format_list *fmt_lst, int *printed, va_list *ap);
@@ -88,7 +89,8 @@ int				format_post_conv(t_format_list *fmt_lst, int *printed,
 int				precision(t_format_list *fmt_lst, int *printed,
 					int conv_len);
 char			*ft_itoa_u(unsigned int n);
-void			ft_putnbr_hex(unsigned long nbr, char *base, int *printed);
+void			ft_putnbr_hex(unsigned long nbr, char *base, int *printed,
+					int fd);
 int				count_digits_base(size_t nb, int base);
 void			only_format(t_format_list *fmt_lst, int *printed);
 #endif

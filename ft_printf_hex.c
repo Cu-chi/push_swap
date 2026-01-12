@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:46:43 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/09 13:58:17 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:17:17 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	format_hex(t_format_list *fmt_lst, int *nb_digit, int *printed)
 	if (!fmt_lst->has_pad && !fmt_lst->has_prs && !fmt_lst->has_lad)
 		format_pre_conv(fmt_lst, printed, *nb_digit);
 	if (fmt_lst->c == 'x')
-		ft_putstr_fd("0x", 1);
+		ft_putstr_fd("0x", fmt_lst->fd);
 	else
-		ft_putstr_fd("0X", 1);
+		ft_putstr_fd("0X", fmt_lst->fd);
 	*printed += 2;
 	if (fmt_lst->has_pad && !fmt_lst->has_prs && !fmt_lst->has_lad)
 		format_pre_conv(fmt_lst, printed, *nb_digit);
@@ -43,8 +43,8 @@ void	write_x(t_format_list *fmt_lst, int *printed, va_list *ap)
 		format_pre_conv(fmt_lst, printed, nb_digit);
 	precision(fmt_lst, printed, count_digits_base(u, 16));
 	if (fmt_lst->c == 'x')
-		ft_putnbr_hex(u, "0123456789abcdef", printed);
+		ft_putnbr_hex(u, "0123456789abcdef", printed, fmt_lst->fd);
 	else
-		ft_putnbr_hex(u, "0123456789ABCDEF", printed);
+		ft_putnbr_hex(u, "0123456789ABCDEF", printed, fmt_lst->fd);
 	format_post_conv(fmt_lst, printed, nb_digit);
 }

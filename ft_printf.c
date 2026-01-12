@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 10:57:17 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 12:58:33 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:13:09 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_printf_logic(t_format_list *fmt_lst, int *printed, va_list *ap)
 		write_p(fmt_lst, printed, ap);
 }
 
-int	ft_printf(const char *fmt, ...)
+int	ft_printf(int fd, const char *fmt, ...)
 {
 	va_list			ap;
 	int				printed;
@@ -47,7 +47,7 @@ int	ft_printf(const char *fmt, ...)
 	{
 		if (*fmt == '%')
 		{
-			fmt_lst = ft_get_format(fmt + 1);
+			fmt_lst = ft_get_format(fmt + 1, fd);
 			if (fmt_lst == NULL)
 				return (0);
 			ft_printf_logic(fmt_lst, &printed, &ap);
@@ -56,7 +56,7 @@ int	ft_printf(const char *fmt, ...)
 		}
 		else
 		{
-			write(1, fmt++, 1);
+			write(fd, fmt++, 1);
 			printed++;
 		}
 	}

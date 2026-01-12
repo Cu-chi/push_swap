@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 11:23:49 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 12:58:48 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:17:12 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	format_pre_conv(t_format_list *fmt_lst, int *printed, int conv_len)
 			ft_memset(str, '0', fmt_lst->width - conv_len);
 		else
 			ft_memset(str, ' ', fmt_lst->width - conv_len);
-		ft_putstr_fd(str, 1);
+		ft_putstr_fd(str, fmt_lst->fd);
 		*printed += fmt_lst->width - conv_len;
 		free(str);
 	}
@@ -45,7 +45,7 @@ int	format_post_conv(t_format_list *fmt_lst, int *printed, int conv_len)
 			return (0);
 		str[fmt_lst->width - conv_len] = 0;
 		ft_memset(str, ' ', fmt_lst->width - conv_len);
-		ft_putstr_fd(str, 1);
+		ft_putstr_fd(str, fmt_lst->fd);
 		*printed += fmt_lst->width - conv_len;
 		free(str);
 	}
@@ -63,7 +63,7 @@ int	precision(t_format_list *fmt_lst, int *printed, int conv_len)
 			return (0);
 		str[fmt_lst->precision - conv_len] = 0;
 		ft_memset(str, '0', fmt_lst->precision - conv_len);
-		ft_putstr_fd(str, 1);
+		ft_putstr_fd(str, fmt_lst->fd);
 		*printed += fmt_lst->precision - conv_len;
 		free(str);
 	}

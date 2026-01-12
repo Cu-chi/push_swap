@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 08:46:57 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 12:58:42 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:20:22 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,16 @@ static int	is_valid_conversion(char c)
 		|| c == 'x' || c == 'X' || c == '%');
 }
 
+t_format_list	*free_fmt(t_format_list	*fmt)
+{
+	free(fmt);
+	return (NULL);
+}
+
 /*
 %[format][width][precision]conv
 */
-t_format_list	*ft_get_format(const char *s)
+t_format_list	*ft_get_format(const char *s, int fd)
 {
 	t_format_list	*fmt;
 	size_t			i;
@@ -63,10 +69,8 @@ t_format_list	*ft_get_format(const char *s)
 	if (is_valid_conversion(s[i]))
 		fmt->c = s[i];
 	else
-	{
-		free(fmt);
-		return (NULL);
-	}
+		return (free_fmt(fmt));
 	fmt->new_index = i;
+	fmt->fd = fd;
 	return (fmt);
 }

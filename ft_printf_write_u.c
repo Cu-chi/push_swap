@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 11:13:02 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 12:58:39 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:17:28 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	write_u(t_format_list *fmt_lst, int *printed, va_list *ap)
 	else
 		format_pre_conv(fmt_lst, printed, len);
 	precision(fmt_lst, printed, len);
-	ft_putstr_fd(a, 1);
+	ft_putstr_fd(a, fmt_lst->fd);
 	*printed += len;
 	free(a);
 	if (fmt_lst->precision && (unsigned int)fmt_lst->precision > len)

@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 11:13:02 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/07 12:58:36 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:16:17 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	write_c(t_format_list *fmt_lst, int *printed, va_list *ap)
 	const char	c = (char)va_arg(*ap, int);
 
 	format_pre_conv(fmt_lst, printed, 1);
-	ft_putchar_fd(c, 1);
+	ft_putchar_fd(c, fmt_lst->fd);
 	(*printed)++;
 	format_post_conv(fmt_lst, printed, 1);
 }
@@ -35,7 +35,7 @@ void	write_s(t_format_list *fmt_lst, int *printed, va_list *ap)
 	else if (s == NULL)
 	{
 		format_pre_conv(fmt_lst, printed, 6);
-		ft_putstr_fd("(null)", 1);
+		ft_putstr_fd("(null)", fmt_lst->fd);
 		*printed += 6;
 		format_post_conv(fmt_lst, printed, 6);
 	}
@@ -45,7 +45,7 @@ void	write_s(t_format_list *fmt_lst, int *printed, va_list *ap)
 		if (fmt_lst->has_prs && (size_t)fmt_lst->precision < len)
 			len = fmt_lst->precision;
 		format_pre_conv(fmt_lst, printed, len);
-		write(1, s, len);
+		write(fmt_lst->fd, s, len);
 		*printed += len;
 		format_post_conv(fmt_lst, printed, len);
 	}
@@ -60,7 +60,7 @@ void	write_p(t_format_list *fmt_lst, int *printed, va_list *ap)
 	if (!p)
 	{
 		format_pre_conv(fmt_lst, printed, 5);
-		ft_putstr_fd("(nil)", 1);
+		ft_putstr_fd("(nil)", fmt_lst->fd);
 		*printed += 5;
 		format_post_conv(fmt_lst, printed, 5);
 	}
@@ -69,9 +69,9 @@ void	write_p(t_format_list *fmt_lst, int *printed, va_list *ap)
 		count = count_digits_base((size_t)p, 16) + 2;
 		format_pre_conv(fmt_lst, printed, count);
 		fmt_lst->has_hex = 1;
-		ft_putstr_fd("0x", 1);
+		ft_putstr_fd("0x", fmt_lst->fd);
 		*printed += 2;
-		ft_putnbr_hex((size_t)p, "0123456789abcdef", printed);
+		ft_putnbr_hex((size_t)p, "0123456789abcdef", printed, fmt_lst->fd);
 		format_post_conv(fmt_lst, printed, count);
 	}
 }
@@ -109,7 +109,7 @@ void	write_di(t_format_list *fmt_lst, int *printed, va_list *ap)
 	if (!fmt_lst->has_prs && fmt_lst->has_pad && !fmt_lst->has_lad)
 		format_pre_conv(fmt_lst, printed, len + (di < 0));
 	precision(fmt_lst, printed, ft_strlen(a));
-	ft_putstr_fd(a, 1);
+	ft_putstr_fd(a, fmt_lst->fd);
 	*printed += ft_strlen(a);
 	free(a);
 	format_post_conv(fmt_lst, printed, len + (di < 0));
