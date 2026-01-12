@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:57:44 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/09 13:10:07 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 08:52:32 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,13 @@ void	print_stacks(t_stacks stacks)
 	ft_printf("STACK A:\n");
 	while (current_a != NULL)
 	{
-		itoa = ft_itoa(current_a->value);
-		ft_printf(itoa);
-		ft_printf("\n");
-		free(itoa);
+		ft_printf("%d\n", current_a->value);
 		current_a = current_a->next;
 	}
 	ft_printf("STACK B:\n");
 	while (current_b != NULL)
 	{
-		itoa = ft_itoa(current_b->value);
-		ft_printf(itoa);
-		ft_printf("\n");
-		free(itoa);
+		ft_printf("%d\n", current_b->value);
 		current_b = current_b->next;
 	}
 }
