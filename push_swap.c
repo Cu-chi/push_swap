@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 10:19:06 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:00:16 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,46 +68,49 @@ int	args_checker(int ac, char **av, t_arguments *args, t_stacks *stacks)
 	return (create_stacks(ac, av, stacks, counter));
 }
 
+void	benchmark(t_stacks stacks)
+{
+	int	total_ops;
+
+	total_ops = 0;
+	total_ops += stacks.sa;
+	total_ops += stacks.sb;
+	total_ops += stacks.ss;
+	total_ops += stacks.pa;
+	total_ops += stacks.pb;
+	total_ops += stacks.ra;
+	total_ops += stacks.rb;
+	total_ops += stacks.rr;
+	total_ops += stacks.rra;
+	total_ops += stacks.rrb;
+	total_ops += stacks.rrr;
+	ft_printf(2, "[bench] %-10s %d%%\n", "disorder:", 0);
+	ft_printf(2, "[bench] %-10s %s\n", "strategy:", "TODO / O(TODO)");
+	ft_printf(2, "[bench] %-10s %d\n", "total_ops:", total_ops);
+	ft_printf(2, "[bench] %-4s %-5d %-4s %-5d %-4s %-5d %-4s %-5d %-4s %5d\n", "sa:",
+		stacks.sa, "sb:", stacks.sb, "ss:", stacks.ss, "pa:", stacks.pa, "pb:",
+		stacks.pb);
+	ft_printf(2, "[bench] %-4s %-5d %-4s %-5d %-4s %-5d %-4s %-5d %-4s %5d\n", "ra:",
+		stacks.ra, "rb:", stacks.rb, "rr:", stacks.rr, "rra:", stacks.rra,
+		"rrb:", stacks.rrb, "rrr:", stacks.rrr);
+}
+
 int	main(int ac, char **av)
 {
 	t_arguments	args;
-	t_stack		stack_a;
-	t_stack		stack_b;
 	t_stacks	stacks;
 
-	stacks.a = NULL;
-	stacks.b = NULL;
+	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
 	{
-		ft_printf("Error\n");
+		ft_printf(2, "Error\n");
 		return (1);
 	}
 	print_stacks(stacks);
-	sa(&stacks);
-	ft_printf("---------------------------\nExec sa\n");
+	selection_sort(&stacks);
 	print_stacks(stacks);
-	pb(&stacks);
-	pb(&stacks);
-	pb(&stacks);
-	ft_printf("---------------------------\nExec pb pb pb\n");
-	print_stacks(stacks);
-	ra(&stacks);
-	rb(&stacks);
-	ft_printf("---------------------------\nExec ra rb\n");
-	print_stacks(stacks);
-	rra(&stacks);
-	rrb(&stacks);
-	ft_printf("---------------------------\nExec rra rrb\n");
-	print_stacks(stacks);
-	sa(&stacks);
-	ft_printf("---------------------------\nExec sa\n");
-	print_stacks(stacks);
-	pa(&stacks);
-	pa(&stacks);
-	pa(&stacks);
-	ft_printf("---------------------------\nExec pa pa pa\n");
-	print_stacks(stacks);
-	ft_printf("STACK A SORTED?: %d", is_stack_sorted(stacks));
+	if (args.bench)
+		benchmark(stacks);
 	free_stacks(&stacks);
 	return (0);
 }

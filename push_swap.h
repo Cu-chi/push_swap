@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 10:19:11 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:10:02 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,21 @@ typedef struct s_stacks
 {
 	struct s_stack	*a;
 	struct s_stack	*b;
+	int				nb_values;
+	int				sa;
+	int				sb;
+	int				ss;
+	int				pa;
+	int				pb;
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
 }					t_stacks;
 
+void				init_stacks(t_stacks *stacks);
 t_stack				*ft_stacknew(int value);
 void				ft_stackadd_front(t_stack **lst, t_stack *new);
 int					ft_stacksize(t_stack *lst);
@@ -54,18 +67,21 @@ int					create_stack_node(char *str_value, char **stack_list,
 						t_stacks *stacks);
 int					check_duplicates(t_stacks *stacks);
 
-void				sa(t_stacks *stacks);
-void				sb(t_stacks *stacks);
+void				sa(t_stacks *stacks, char ss);
+void				sb(t_stacks *stacks, char ss);
 void				ss(t_stacks *stacks);
 void				pa(t_stacks *stacks);
 void				pb(t_stacks *stacks);
-void				ra(t_stacks *stacks);
-void				rb(t_stacks *stacks);
+void				ra(t_stacks *stacks, char rr);
+void				rb(t_stacks *stacks, char rr);
 void				rr(t_stacks *stacks);
-void				rra(t_stacks *stacks);
-void				rrb(t_stacks *stacks);
+void				rra(t_stacks *stacks, char rrr);
+void				rrb(t_stacks *stacks, char rrr);
 void				rrr(t_stacks *stacks);
 
 int					is_stack_sorted(t_stacks stacks);
+
+int					get_min_index(t_stack *stack);
+void				selection_sort(t_stacks *stacks);
 
 #endif
