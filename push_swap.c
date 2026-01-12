@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 09:19:49 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:19:06 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	create_stacks(int ac, char **av, t_stacks *stacks, int counter)
 	}
 	while (counter < ac && av[counter])
 		create_stack_node(av[counter++], stack_list, stacks);
+	if (check_duplicates(stacks))
+		return (0);
 	return (1);
 }
 
@@ -105,6 +107,7 @@ int	main(int ac, char **av)
 	pa(&stacks);
 	ft_printf("---------------------------\nExec pa pa pa\n");
 	print_stacks(stacks);
+	ft_printf("STACK A SORTED?: %d", is_stack_sorted(stacks));
 	free_stacks(&stacks);
 	return (0);
 }
