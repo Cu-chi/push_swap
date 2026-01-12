@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:01:51 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 11:09:34 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:14:48 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	sa(t_stacks *stacks, char ss)
 	t_stack	*new_first;
 
 	if (!ss)
+	{
 		stacks->sa++;
+		ft_printf(1, "sa\n");
+	}
 	if (stacks->a == NULL || stacks->a->next == NULL)
 		return ;
 	new_first = stacks->a->next;
@@ -35,7 +38,10 @@ void	sb(t_stacks *stacks, char ss)
 	t_stack	*new_first;
 
 	if (!ss)
+	{
 		stacks->sb++;
+		ft_printf(1, "sb\n");
+	}
 	if (stacks->b == NULL || stacks->b->next == NULL)
 		return ;
 	new_first = stacks->b->next;
@@ -51,6 +57,7 @@ void	sb(t_stacks *stacks, char ss)
 void	ss(t_stacks *stacks)
 {
 	stacks->ss++;
+	ft_printf(1, "ss\n");
 	sa(stacks, 1);
 	sb(stacks, 1);
 }
@@ -61,6 +68,7 @@ void	pa(t_stacks *stacks)
 	t_stack	*a;
 
 	stacks->pa++;
+	ft_printf(1, "pa\n");
 	b = stacks->b;
 	if (b == NULL)
 		return ;
@@ -80,6 +88,7 @@ void	pb(t_stacks *stacks)
 	t_stack	*b;
 
 	stacks->pb++;
+	ft_printf(1, "pb\n");
 	a = stacks->a;
 	if (a == NULL)
 		return ;

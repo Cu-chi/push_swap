@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 08:48:46 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 11:07:46 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:14:12 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	rra(t_stacks *stacks, char rrr)
 	t_stack	*last;
 
 	if (!rrr)
+	{
 		stacks->rra++;
+		ft_printf(1, "rra\n");
+	}
 	first = stacks->a;
 	last = ft_stacklast(first);
 	if (first == last)
@@ -39,7 +42,10 @@ void	rrb(t_stacks *stacks, char rrr)
 	t_stack	*last;
 
 	if (!rrr)
+	{
 		stacks->rrb++;
+		ft_printf(1, "rrb\n");
+	}
 	first = stacks->b;
 	last = ft_stacklast(first);
 	if (first == last)
@@ -55,6 +61,7 @@ void	rrb(t_stacks *stacks, char rrr)
 void	rrr(t_stacks *stacks)
 {
 	stacks->rrr++;
+	ft_printf(1, "rrr\n");
 	rra(stacks, 1);
 	rrb(stacks, 1);
 }
