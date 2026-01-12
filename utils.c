@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:11:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:30:37 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:36:16 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	exit_safe(char **stack_list, t_stacks *stacks, int fail)
 	free_stacks(stacks);
 	ft_printf(2, "Error\n");
 	exit(fail);
-	return (0);
+	return (fail);
 }
 
 int	ft_atoi_ovrflw(const char *nptr, char **stack_list, t_stacks *stacks)

@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:31:26 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:38:43 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,8 @@ int	main(int ac, char **av)
 
 	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
-	{
-		ft_printf(2, "Error\n");
-		return (1);
-	}
-	print_stacks(stacks);
+		return (exit_safe(NULL, &stacks, EXIT_FAILURE));
 	selection_sort(&stacks);
-	print_stacks(stacks);
 	if (args.bench)
 		benchmark(stacks);
 	free_stacks(&stacks);
