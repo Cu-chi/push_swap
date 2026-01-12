@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:11:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 11:57:52 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:30:37 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,20 @@ int	ft_atoi_ovrflw(const char *nptr, char **stack_list, t_stacks *stacks)
 
 int	check_duplicates(t_stacks *stacks)
 {
-	t_stack *stack;
-	t_stack *tmp;
-	int	current_value;
+	t_stack	*stack;
+	t_stack	*tmp;
+	int		current_value;
 
 	stack = stacks->a;
-	tmp = stacks->a;
-	if (stack == NULL)
-		return (0);
-	current_value = stack->value;
 	while (stack)
 	{
+		tmp = stack->next;
+		current_value = stack->value;
 		while (tmp)
 		{
-			tmp = tmp->next;
-			if (tmp && tmp->value == current_value)
+			if (tmp->value == current_value)
 				return (1);
+			tmp = tmp->next;
 		}
 		stack = stack->next;
 	}
