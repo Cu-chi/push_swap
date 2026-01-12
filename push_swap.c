@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/09 13:56:35 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 09:19:49 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,30 @@ int	main(int ac, char **av)
 		ft_printf("Error\n");
 		return (1);
 	}
+	print_stacks(stacks);
+	sa(&stacks);
+	ft_printf("---------------------------\nExec sa\n");
+	print_stacks(stacks);
+	pb(&stacks);
+	pb(&stacks);
+	pb(&stacks);
+	ft_printf("---------------------------\nExec pb pb pb\n");
+	print_stacks(stacks);
+	ra(&stacks);
+	rb(&stacks);
+	ft_printf("---------------------------\nExec ra rb\n");
+	print_stacks(stacks);
+	rra(&stacks);
+	rrb(&stacks);
+	ft_printf("---------------------------\nExec rra rrb\n");
+	print_stacks(stacks);
+	sa(&stacks);
+	ft_printf("---------------------------\nExec sa\n");
+	print_stacks(stacks);
+	pa(&stacks);
+	pa(&stacks);
+	pa(&stacks);
+	ft_printf("---------------------------\nExec pa pa pa\n");
 	print_stacks(stacks);
 	free_stacks(&stacks);
 	return (0);
