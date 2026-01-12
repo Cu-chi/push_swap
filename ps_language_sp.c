@@ -6,16 +6,18 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:01:51 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 09:18:54 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:09:34 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stacks *stacks)
+void	sa(t_stacks *stacks, char ss)
 {
 	t_stack	*new_first;
 
+	if (!ss)
+		stacks->sa++;
 	if (stacks->a == NULL || stacks->a->next == NULL)
 		return ;
 	new_first = stacks->a->next;
@@ -28,10 +30,12 @@ void	sa(t_stacks *stacks)
 	stacks->a = new_first;
 }
 
-void	sb(t_stacks *stacks)
+void	sb(t_stacks *stacks, char ss)
 {
 	t_stack	*new_first;
 
+	if (!ss)
+		stacks->sb++;
 	if (stacks->b == NULL || stacks->b->next == NULL)
 		return ;
 	new_first = stacks->b->next;
@@ -46,8 +50,9 @@ void	sb(t_stacks *stacks)
 
 void	ss(t_stacks *stacks)
 {
-	sa(stacks);
-	sb(stacks);
+	stacks->ss++;
+	sa(stacks, 1);
+	sb(stacks, 1);
 }
 
 void	pa(t_stacks *stacks)
@@ -55,6 +60,7 @@ void	pa(t_stacks *stacks)
 	t_stack	*b;
 	t_stack	*a;
 
+	stacks->pa++;
 	b = stacks->b;
 	if (b == NULL)
 		return ;
@@ -73,6 +79,7 @@ void	pb(t_stacks *stacks)
 	t_stack	*a;
 	t_stack	*b;
 
+	stacks->pb++;
 	a = stacks->a;
 	if (a == NULL)
 		return ;

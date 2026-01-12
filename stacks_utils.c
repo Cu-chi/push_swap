@@ -6,11 +6,29 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:57:44 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 09:37:30 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:55:12 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_stacks(t_stacks *stacks)
+{
+	stacks->a = NULL;
+	stacks->b = NULL;
+	stacks->nb_values = 0;
+	stacks->sa = 0;
+	stacks->sb = 0;
+	stacks->ss = 0;
+	stacks->pa = 0;
+	stacks->pb = 0;
+	stacks->ra = 0;
+	stacks->rb = 0;
+	stacks->rr = 0;
+	stacks->rra = 0;
+	stacks->rrb = 0;
+	stacks->rrr = 0;
+}
 
 void	free_stacks(t_stacks *stacks)
 {
@@ -44,24 +62,24 @@ void	print_stacks(t_stacks stacks)
 
 	current_a = stacks.a;
 	current_b = stacks.b;
-	ft_printf("STACK A:\n");
+	ft_printf(1, "STACK A:\n");
 	while (current_a != NULL)
 	{
 		if (current_a->prev)
-			ft_printf("%d (prev is %d)\n", current_a->value,
+			ft_printf(1, "%d (prev is %d)\n", current_a->value,
 				current_a->prev->value);
 		else
-			ft_printf("%d\n", current_a->value);
+			ft_printf(1, "%d\n", current_a->value);
 		current_a = current_a->next;
 	}
-	ft_printf("STACK B:\n");
+	ft_printf(1, "STACK B:\n");
 	while (current_b != NULL)
 	{
 		if (current_b->prev)
-			ft_printf("%d (prev is %d)\n", current_b->value,
+			ft_printf(1, "%d (prev is %d)\n", current_b->value,
 				current_b->prev->value);
 		else
-			ft_printf("%d\n", current_b->value);
+			ft_printf(1, "%d\n", current_b->value);
 		current_b = current_b->next;
 	}
 }
@@ -74,6 +92,7 @@ int	create_stack_node(char *str_value, char **stack_list, t_stacks *stacks)
 	if (!tmp)
 		return (exit_safe(stack_list, stacks, EXIT_FAILURE));
 	ft_stackadd_back(&stacks->a, tmp);
+	stacks->nb_values++;
 	return (1);
 }
 
