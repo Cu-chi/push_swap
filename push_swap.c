@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:00:16 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:31:26 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ void	benchmark(t_stacks stacks)
 	ft_printf(2, "[bench] %-10s %d%%\n", "disorder:", 0);
 	ft_printf(2, "[bench] %-10s %s\n", "strategy:", "TODO / O(TODO)");
 	ft_printf(2, "[bench] %-10s %d\n", "total_ops:", total_ops);
-	ft_printf(2, "[bench] %-4s %-5d %-4s %-5d %-4s %-5d %-4s %-5d %-4s %5d\n", "sa:",
-		stacks.sa, "sb:", stacks.sb, "ss:", stacks.ss, "pa:", stacks.pa, "pb:",
-		stacks.pb);
-	ft_printf(2, "[bench] %-4s %-5d %-4s %-5d %-4s %-5d %-4s %-5d %-4s %5d\n", "ra:",
-		stacks.ra, "rb:", stacks.rb, "rr:", stacks.rr, "rra:", stacks.rra,
-		"rrb:", stacks.rrb, "rrr:", stacks.rrr);
+	ft_printf(2, "[bench] %-4s %-5d %-4s %-5d %-4s %-5d %-4s %-5d %-4s %5d\n",
+		"sa:", stacks.sa, "sb:", stacks.sb, "ss:", stacks.ss, "pa:", stacks.pa,
+		"pb:", stacks.pb);
+	ft_printf(2, "[bench] %-4s %-5d %-4s %-5d %-4s %-5d %-4s %-5d %-4s %5d\n",
+		"ra:", stacks.ra, "rb:", stacks.rb, "rr:", stacks.rr, "rra:",
+		stacks.rra, "rrb:", stacks.rrb, "rrr:", stacks.rrr);
 }
 
 int	main(int ac, char **av)

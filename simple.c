@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 09:30:20 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:03:28 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:31:35 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int	get_min_index(t_stack *stack)
 		stack = stack->next;
 		counter++;
 	}
-	return index;
+	return (index);
 }
 
-void selection_sort(t_stacks *stacks)
+void	selection_sort(t_stacks *stacks)
 {
-	int	min_index;
-	t_stack tmp;
-	int	reverse;
+	int		min_index;
+	t_stack	tmp;
+	int		reverse;
 
 	while (stacks->a)
 	{
