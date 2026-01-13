@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:34:59 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 14:33:41 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:27:17 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,5 @@ void	chunk_based_sort(t_stacks *stacks)
 		sort_chunk(stacks, i++, range, sorted);
 	while (stacks->b)
 		process_operations(stacks, range);
+	free(sorted);
 }
