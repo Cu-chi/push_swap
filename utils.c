@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:11:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:36:16 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:44:14 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,16 @@ int	check_duplicates(t_stacks *stacks)
 		stack = stack->next;
 	}
 	return (0);
+}
+
+int	ft_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	if (n < 0)
+		return (0);
+	while (i * i <= n && i <= 46340)
+		i++;
+	return (i - 1);
 }

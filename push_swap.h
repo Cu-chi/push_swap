@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:52:36 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:45:07 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void				free_stack_list(char **stack_list);
 int					create_stack_node(char *str_value, char **stack_list,
 						t_stacks *stacks);
 int					check_duplicates(t_stacks *stacks);
+int					ft_sqrt(int n);
 
 void				sa(t_stacks *stacks, char ss);
 void				sb(t_stacks *stacks, char ss);
@@ -80,8 +81,11 @@ void				rrb(t_stacks *stacks, char rrr);
 void				rrr(t_stacks *stacks);
 
 int					is_stack_sorted(t_stacks stacks);
-
+// simple sort
 int					get_min_index(t_stack *stack);
 void				selection_sort(t_stacks *stacks);
+// medium sort
+int					*preprocess_values(t_stacks *stacks);
+void				chunk_based_sort(t_stacks *stacks);
 
 #endif
