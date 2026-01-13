@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:38:43 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/13 18:37:20 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,12 @@ int	main(int ac, char **av)
 	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
 		return (exit_safe(NULL, &stacks, EXIT_FAILURE));
-	selection_sort(&stacks);
+	//selection_sort(&stacks);
+	//chunk_based_sort(&stacks);
+	//lsd_radix_sort(&stacks);
 	if (args.bench)
 		benchmark(stacks);
+	// run_benchmark(&lsd_radix_sort);
 	free_stacks(&stacks);
 	return (0);
 }
