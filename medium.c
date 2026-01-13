@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:34:59 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 09:34:26 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/13 09:51:34 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	get_chunk(int n, t_stacks *stacks, int range, int *sorted)
 {
-	int n_index;
+	int	n_index;
 	int	i;
-	int chunk;
-	
+	int	chunk;
+
 	n_index = -1;
 	i = 0;
 	while (n_index < 0 && i < stacks->nb_values)
@@ -32,9 +32,9 @@ int	get_chunk(int n, t_stacks *stacks, int range, int *sorted)
 void	sort_chunk(t_stacks *stacks, int chunk, int range, int *sorted)
 {
 	int	nb_chunk;
-	int current_chunk;
+	int	current_chunk;
 	int	nb_sorted;
-	
+
 	nb_sorted = 0;
 	nb_chunk = ft_sqrt(stacks->nb_values);
 	while (nb_sorted < range)
@@ -78,10 +78,8 @@ void	chunk_based_sort(t_stacks *stacks)
 {
 	int	*sorted;
 	int	nb_chunk;
-	int i;
 	int	range;
-	int max_index;
-	int nbrb = 0;
+	int	i;
 
 	sorted = preprocess_values(stacks);
 	nb_chunk = ft_sqrt(stacks->nb_values);
@@ -89,20 +87,16 @@ void	chunk_based_sort(t_stacks *stacks)
 	i = 0;
 	while (i < nb_chunk)
 		sort_chunk(stacks, i++, range, sorted);
+	i = 0;
 	while (stacks->b)
 	{
-		max_index = get_max_index_range(stacks->b, range);
-		while (max_index > 0)
+		while (get_max_index_range(stacks->b, range) > 0)
 		{
 			rb(stacks, 0);
-			nbrb++;
-			max_index = get_max_index_range(stacks->b, range);
+			i++;
 		}
 		pa(stacks);
-		while (nbrb > 0)
-		{
+		while (i-- > 0)
 			rrb(stacks, 0);
-			nbrb--;
-		}
 	}
 }
