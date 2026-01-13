@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:34:59 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 12:50:47 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/13 14:33:41 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	sort_chunk(t_stacks *stacks, int sorting_chunk, int range, int *sorted)
 	}
 }
 
-int	get_max_index_range(t_stack *stack, int range)
+int	get_max_index_range(t_stack *stack)
 {
 	int	index;
 	int	counter;
@@ -78,7 +78,7 @@ void	process_operations(t_stacks *stacks, int range)
 {
 	int max_index;
 
-	max_index = get_max_index_range(stacks->b, range);
+	max_index = get_max_index_range(stacks->b);
 	while (max_index > 0)
 	{
 		if (max_index == 1)
@@ -87,7 +87,7 @@ void	process_operations(t_stacks *stacks, int range)
 			rrb(stacks, 0);
 		else
 			rb(stacks, 0);
-		max_index = get_max_index_range(stacks->b, range);
+		max_index = get_max_index_range(stacks->b);
 	}
 	pa(stacks);
 }
