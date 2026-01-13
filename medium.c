@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:34:59 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 09:51:34 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:50:47 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	get_chunk(int n, t_stacks *stacks, int range, int *sorted)
 	return (n_index / range);
 }
 
-void	sort_chunk(t_stacks *stacks, int chunk, int range, int *sorted)
+void	sort_chunk(t_stacks *stacks, int sorting_chunk, int range, int *sorted)
 {
 	int	nb_chunk;
 	int	current_chunk;
@@ -42,7 +42,7 @@ void	sort_chunk(t_stacks *stacks, int chunk, int range, int *sorted)
 		current_chunk = get_chunk(stacks->a->value, stacks, range, sorted);
 		if (current_chunk >= nb_chunk)
 			current_chunk--;
-		if (current_chunk == chunk)
+		if (current_chunk == sorting_chunk)
 		{
 			pb(stacks);
 			nb_sorted++;
@@ -61,7 +61,7 @@ int	get_max_index_range(t_stack *stack, int range)
 	index = -1;
 	counter = 0;
 	max_value = 0;
-	while (stack && counter < range)
+	while (stack)
 	{
 		if (index == -1 || stack->value > max_value)
 		{
@@ -72,6 +72,24 @@ int	get_max_index_range(t_stack *stack, int range)
 		counter++;
 	}
 	return (index);
+}
+
+void	process_operations(t_stacks *stacks, int range)
+{
+	int max_index;
+
+	max_index = get_max_index_range(stacks->b, range);
+	while (max_index > 0)
+	{
+		if (max_index == 1)
+			sb(stacks, 0);
+		else if (max_index >= range)
+			rrb(stacks, 0);
+		else
+			rb(stacks, 0);
+		max_index = get_max_index_range(stacks->b, range);
+	}
+	pa(stacks);
 }
 
 void	chunk_based_sort(t_stacks *stacks)
@@ -87,16 +105,6 @@ void	chunk_based_sort(t_stacks *stacks)
 	i = 0;
 	while (i < nb_chunk)
 		sort_chunk(stacks, i++, range, sorted);
-	i = 0;
 	while (stacks->b)
-	{
-		while (get_max_index_range(stacks->b, range) > 0)
-		{
-			rb(stacks, 0);
-			i++;
-		}
-		pa(stacks);
-		while (i-- > 0)
-			rrb(stacks, 0);
-	}
+		process_operations(stacks, range);
 }
