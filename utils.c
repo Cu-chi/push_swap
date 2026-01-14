@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:11:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 14:44:14 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/14 11:00:33 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	exit_safe(char **stack_list, t_stacks *stacks, int fail)
 
 int	ft_atoi_ovrflw(const char *nptr, char **stack_list, t_stacks *stacks)
 {
-	int				i;
-	unsigned int	n;
-	int				m;
+	int		i;
+	long	n;
+	int		m;
 
 	i = 0;
 	n = 0;
