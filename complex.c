@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:13:27 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/14 11:12:29 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/14 11:36:55 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	get_bit_at(int value, int bit_pos)
 {
-	int r;
+	int	r;
 
 	r = 0;
 	while (value > 0 && bit_pos-- >= 0)
@@ -29,7 +29,7 @@ int	get_bit_at(int value, int bit_pos)
 
 int	get_bin_len(int value)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (value > 0)
@@ -56,21 +56,20 @@ int	find_index(int value, int *sorted, t_stacks *stacks)
 
 void	lsd_radix_sort(t_stacks *stacks)
 {
-	int		*sorted;
-	int		values_checked;
-	int		bit_pos;
-	int		bit;
-	int		max_bit_len;
+	int	*sorted;
+	int	values_checked;
+	int	bit_pos;
+	int	bit;
 
 	sorted = preprocess_values(stacks);
 	bit_pos = 0;
-	max_bit_len = get_bin_len(stacks->nb_values);
-	while (max_bit_len--)
+	while (bit_pos < get_bin_len(stacks->nb_values))
 	{
 		values_checked = 0;
 		while (values_checked++ < stacks->nb_values)
 		{
-			bit = get_bit_at(find_index(stacks->a->value, sorted, stacks), bit_pos);
+			bit = get_bit_at(find_index(stacks->a->value, sorted, stacks),
+					bit_pos);
 			if (bit == 0)
 				pb(stacks);
 			else
