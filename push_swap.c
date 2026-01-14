@@ -103,6 +103,8 @@ int	main(int ac, char **av)
 	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
 		return (exit_safe(NULL, &stacks, EXIT_FAILURE));
+	if (is_stack_sorted(stacks))
+		return (0);
 	//selection_sort(&stacks);
 	//chunk_based_sort(&stacks);
 	//lsd_radix_sort(&stacks);
