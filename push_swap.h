@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 17:42:30 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/14 09:41:51 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void				selection_sort(t_stacks *stacks);
 int					*preprocess_values(t_stacks *stacks);
 void				chunk_based_sort(t_stacks *stacks);
 // complex sort
-int					get_bit_at(int value, int bit_pos);
 void				lsd_radix_sort(t_stacks *stacks);
 
 #endif
