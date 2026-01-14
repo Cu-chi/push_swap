@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 18:37:20 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/14 15:13:09 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,21 @@ void	benchmark(t_stacks stacks)
 		stacks.rra, "rrb:", stacks.rrb, "rrr:", stacks.rrr);
 }
 
+void	init_args(t_arguments *args)
+{
+	args->bench = 0;
+	args->simple = 0;
+	args->medium = 0;
+	args->complex = 0;
+	args->adaptive = 0;
+}
+
 int	main(int ac, char **av)
 {
 	t_arguments	args;
 	t_stacks	stacks;
 
+	init_args(&args);
 	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
 		return (exit_safe(NULL, &stacks, EXIT_FAILURE));
