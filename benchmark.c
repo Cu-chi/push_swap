@@ -6,16 +6,16 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 10:08:11 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 18:20:19 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 12:35:14 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifdef BENCH
-#include "push_swap.h"
-#include <stdio.h>
-#define STACK_SIZE_STR "500"
-#define STACK_SIZE 500
-#define BENCHMARK_NB 1000
+# include "push_swap.h"
+# include <stdio.h>
+# define STACK_SIZE_STR "500"
+# define STACK_SIZE 500
+# define BENCHMARK_NB 1000
 
 int	get_total_ops(t_stacks stacks)
 {

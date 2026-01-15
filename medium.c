@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:34:59 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 11:24:30 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 12:34:58 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	get_max_index_range(t_stack *stack)
 
 void	process_operations(t_stacks *stacks, int range)
 {
-	int max_index;
+	int	max_index;
 
 	max_index = get_max_index_range(stacks->b);
 	while (max_index > 0)
