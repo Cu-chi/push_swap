@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 11:09:49 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:25:52 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	create_stacks(int ac, char **av, t_stacks *stacks, int counter)
 {
 	char	**stack_list;
-	t_stack	*tmp;
-	t_stack	*prev;
 
 	stack_list = NULL;
 	if (counter + 1 == ac)
