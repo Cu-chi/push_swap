@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:34:59 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/13 17:27:17 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:24:30 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	get_chunk(int n, t_stacks *stacks, int range, int *sorted)
 {
 	int	n_index;
 	int	i;
-	int	chunk;
 
 	n_index = -1;
 	i = 0;
