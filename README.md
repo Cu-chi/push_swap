@@ -77,7 +77,7 @@ rrr : rra and rrb at the same time.
 
 # Algorithms Selected
 
-### Simple Algorithm: Selection Sort ($O(n^2)$)
+### Simple Algorithm: Selection Sort ($`O(n^2)`$)
 **Rationale:** We chose a stack-adapted Selection Sort for its conceptual simplicity. Since the goal is to sort a small number of elements, minimizing code complexity was prioritized over execution speed.
 
 **Complexity Argument:** The algorithm searches for the minimum element in stack A and pushes it to stack B.  
@@ -92,7 +92,7 @@ Asymptotically, the quadratic term $n^2$ dominates. Thus, the time complexity is
 
 ---
 
-### Medium Algorithm: Chunk Sort ($O(n\sqrt{n})$)
+### Medium Algorithm: Chunk Sort ($`O(n\sqrt{n})`$)
 **Rationale:** To handle larger sets (e.g., 100 integers), scanning for a specific minimum becomes too costly. We implemented a **Chunk Sort** (a variation of Bucket Sort). Instead of searching for a single number, we search for *any* number within a specific range (chunk). This increases the probability of finding a candidate near the top of the stack, drastically reducing rotation costs.
 
 **Complexity Argument:** * We divide the stack A into $k$ chunks. A balanced choice is $k \approx \sqrt{n}$.
@@ -103,7 +103,7 @@ Total cost $\approx n \times \sqrt{n}$. Thus, the complexity is **$O(n\sqrt{n})$
 
 ---
 
-### Complex Algorithm: Radix Sort ($O(n\log n)$)
+### Complex Algorithm: Radix Sort ($`O(n\log n)`$)
 **Rationale:** For the largest datasets (500+ integers), comparison-based sorts struggle to stay within the instruction limits. We implemented a **LSD (Least Significant Digit) Radix Sort** in Base 2 (Binary).
 By pre-processing input values into simplified ranks ($0$ to $n-1$), we can process the numbers bit by bit using the two stacks as binary buckets (Stack B for 0, Stack A for 1).
 
