@@ -3,40 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpietrza <cpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 14:24:57 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:58:45 by cpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	create_stacks(int ac, char **av, t_stacks *stacks, int counter)
-{
-	char	**stack_list;
+// int	create_stacks(int ac, char **av, t_stacks *stacks, int counter)
+// {
+// 	char	**stack_list;
 
-	stack_list = NULL;
-	if (counter + 1 == ac)
-	{
-		stack_list = ft_split(av[counter], ' ');
-		if (!stack_list)
-			return (0);
-		counter = 0;
-	}
-	if (stack_list)
-	{
-		while (stack_list[counter])
-			create_stack_node(stack_list[counter++], stack_list, stacks);
-		free_stack_list(stack_list);
-		return (1);
-	}
-	while (counter < ac && av[counter])
-		create_stack_node(av[counter++], stack_list, stacks);
-	if (check_duplicates(stacks))
-		return (0);
-	return (1);
-}
+// 	stack_list = NULL;
+// 	if (counter + 1 == ac)
+// 	{
+// 		stack_list = ft_split(av[counter], ' ');
+// 		if (!stack_list)
+// 			return (0);
+// 		counter = 0;
+// 	}
+// 	if (stack_list)
+// 	{
+// 		while (stack_list[counter])
+// 			create_stack_node(stack_list[counter++], stack_list, stacks);
+// 		free_stack_list(stack_list);
+// 		return (1);
+// 	}
+// 	while (counter < ac && av[counter])
+// 		create_stack_node(av[counter++], stack_list, stacks);
+// 	if (check_duplicates(stacks))
+// 		return (0);
+// 	return (1);
+// }
 
 int	args_checker(int ac, char **av, t_arguments *args, t_stacks *stacks)
 {
@@ -63,7 +63,9 @@ int	args_checker(int ac, char **av, t_arguments *args, t_stacks *stacks)
 			return (0);
 		counter++;
 	}
-	return (create_stacks(ac, av, stacks, counter));
+	parse(ac, av, counter, stacks);
+	return (1);
+	// return (create_stacks(ac, av, stacks, counter));
 }
 
 void	benchmark(t_arguments args, t_stacks stacks)
@@ -113,6 +115,7 @@ int	main(int ac, char **av)
 	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
 		return (exit_safe(NULL, &stacks, EXIT_FAILURE));
+	
 	if (is_stack_sorted(stacks))
 		return (0);
 	stacks.disorder = compute_disorder(&stacks);
@@ -126,6 +129,7 @@ int	main(int ac, char **av)
 		lsb_radix_sort(&stacks);
 	if (args.bench)
 		benchmark(args, stacks);
+	print_stacks(stacks);
 	free_stacks(&stacks);
 	return (0);
 }

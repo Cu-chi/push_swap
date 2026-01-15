@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpietrza <cpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 14:07:24 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:58:37 by cpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ void				rr(t_stacks *stacks);
 void				rra(t_stacks *stacks, char rrr);
 void				rrb(t_stacks *stacks, char rrr);
 void				rrr(t_stacks *stacks);
+
+int					create_stacks(char *res, t_stacks *stacks, int counter);
+char				*parse(int ac, char **av, int counter, t_stacks *stacks);
+void				check_parse(char **av, char *res, t_stacks *stacks,
+						int counter);
+void				action_parse(int ac, char **av, int counter, char **res);
 
 int					is_stack_sorted(t_stacks stacks);
 // simple sort

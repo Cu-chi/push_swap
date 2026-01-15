@@ -15,7 +15,8 @@ SRCS = op_rotate.c \
 	stacks.c \
 	stacks_utils.c \
 	push_swap.c \
-	utils.c
+	utils.c \
+	parsing.c
 
 OBJ_DIR = objs/
 OBJS =$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
