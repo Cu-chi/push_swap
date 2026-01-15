@@ -14,7 +14,8 @@ SRCS = ps_language_r.c \
 	stacks_utils.c \
 	stacks.c \
 	push_swap.c \
-	utils.c
+	utils.c \
+	utils_sec.c
 
 OBJ_DIR = objs/
 OBJS =$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))

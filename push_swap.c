@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 11:25:52 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:07:13 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	args_checker(int ac, char **av, t_arguments *args, t_stacks *stacks)
 	return (create_stacks(ac, av, stacks, counter));
 }
 
-void	benchmark(t_stacks stacks)
+void	benchmark(t_arguments args, t_stacks stacks)
 {
 	int	total_ops;
 
@@ -82,8 +82,10 @@ void	benchmark(t_stacks stacks)
 	total_ops += stacks.rra;
 	total_ops += stacks.rrb;
 	total_ops += stacks.rrr;
-	ft_printf(2, "[bench] %-10s %d%%\n", "disorder:", 0);
-	ft_printf(2, "[bench] %-10s %s\n", "strategy:", "TODO / O(TODO)");
+	ft_printf(2, "[bench] %-10s %d.%d%%\n", "disorder:", (int)(stacks.disorder
+			* 100), (int)(stacks.disorder * 10000) % 100);
+	ft_printf(2, "[bench] %-10s %s\n", "strategy:", benchmark_strategy(args,
+			stacks));
 	ft_printf(2, "[bench] %-10s %d\n", "total_ops:", total_ops);
 	ft_printf(2, "[bench] %-4s %-5d %-4s %-5d %-4s %-5d %-4s %-5d %-4s %5d\n",
 		"sa:", stacks.sa, "sb:", stacks.sb, "ss:", stacks.ss, "pa:", stacks.pa,
@@ -113,15 +115,15 @@ int	main(int ac, char **av)
 		return (exit_safe(NULL, &stacks, EXIT_FAILURE));
 	if (is_stack_sorted(stacks))
 		return (0);
-	if (args.simple)
+	stacks.disorder = compute_disorder(&stacks);
+	if (args.simple || stacks.disorder < 0.2f)
 		selection_sort(&stacks);
-	else if (args.medium)
+	else if (args.medium || (stacks.disorder >= 0.2f && stacks.disorder < 0.5f))
 		chunk_based_sort(&stacks);
-	else if (args.complex)
+	else if (args.complex || stacks.disorder >= 0.5f)
 		lsb_radix_sort(&stacks);
 	if (args.bench)
-		benchmark(stacks);
-	// run_benchmark(&lsd_radix_sort);
+		benchmark(args, stacks);
 	free_stacks(&stacks);
 	return (0);
 }

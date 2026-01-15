@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:57:44 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 11:25:12 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:45:14 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	init_stacks(t_stacks *stacks)
 	stacks->rra = 0;
 	stacks->rrb = 0;
 	stacks->rrr = 0;
+	stacks->disorder = 0.f;
 }
 
 void	free_stacks(t_stacks *stacks)

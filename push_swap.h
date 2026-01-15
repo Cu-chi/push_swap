@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 11:09:51 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:07:24 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_stacks
 	int				rra;
 	int				rrb;
 	int				rrr;
+	float			disorder;
 }					t_stacks;
 
 void				init_stacks(t_stacks *stacks);
@@ -70,6 +71,8 @@ int					ft_sqrt(int n);
 void				run_benchmark(void algorithm(t_stacks *));
 int					args_checker(int ac, char **av, t_arguments *args,
 						t_stacks *stacks);
+float				compute_disorder(t_stacks *stacks);
+char				*benchmark_strategy(t_arguments args, t_stacks stacks);
 
 void				sa(t_stacks *stacks, char ss);
 void				sb(t_stacks *stacks, char ss);
