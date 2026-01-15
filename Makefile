@@ -4,18 +4,18 @@ NAME = push_swap
 INCLUDES = -I.
 FT_PRINTF = ft_printf/libftprintf.a
 
-SRCS = ps_language_r.c \
-	ps_language_rr.c \
-	ps_language_sp.c \
-	preprocess.c \
-	simple.c \
-	medium.c \
-	complex.c \
-	stacks_utils.c \
+SRCS = op_rotate.c \
+	op_rev_rotate.c \
+	op_push_swap.c \
+	error_manager.c \
+	sort_simple.c \
+	sort_chunks.c \
+	sort_radix.c \
+	sort_init.c \
 	stacks.c \
+	stacks_utils.c \
 	push_swap.c \
-	utils.c \
-	utils_sec.c
+	utils.c
 
 OBJ_DIR = objs/
 OBJS =$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
