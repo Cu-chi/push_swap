@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 14:07:13 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:21:16 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,9 @@ int	main(int ac, char **av)
 	if (is_stack_sorted(stacks))
 		return (0);
 	stacks.disorder = compute_disorder(&stacks);
-	if (args.simple || stacks.disorder < 0.2f)
+	if (args.simple || (stacks.disorder < 0.2f && !args.medium && !args.complex))
 		selection_sort(&stacks);
-	else if (args.medium || (stacks.disorder >= 0.2f && stacks.disorder < 0.5f))
+	else if (args.medium || (stacks.disorder >= 0.2f && stacks.disorder < 0.5f && !args.complex))
 		chunk_based_sort(&stacks);
 	else if (args.complex || stacks.disorder >= 0.5f)
 		lsb_radix_sort(&stacks);
