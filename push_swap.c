@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/14 16:14:42 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:09:49 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int	main(int ac, char **av)
 	else if (args.medium)
 		chunk_based_sort(&stacks);
 	else if (args.complex)
-		lsd_radix_sort(&stacks);
+		lsb_radix_sort(&stacks);
 	if (args.bench)
 		benchmark(stacks);
 	// run_benchmark(&lsd_radix_sort);

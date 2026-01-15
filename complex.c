@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:13:27 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/14 11:36:55 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:09:33 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	find_index(int value, int *sorted, t_stacks *stacks)
 	return (0);
 }
 
-void	lsd_radix_sort(t_stacks *stacks)
+void	lsb_radix_sort(t_stacks *stacks)
 {
 	int	*sorted;
 	int	values_checked;
