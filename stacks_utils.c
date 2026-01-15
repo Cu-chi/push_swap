@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:57:44 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 11:55:12 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:25:12 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	print_stacks(t_stacks stacks)
 {
 	t_stack	*current_a;
 	t_stack	*current_b;
-	char	*itoa;
 
 	current_a = stacks.a;
 	current_b = stacks.b;
