@@ -1,0 +1,79 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/15 14:56:51 by equentin          #+#    #+#             */
+/*   Updated: 2026/01/16 14:28:16 by equentin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../get_next_line/get_next_line.h"
+#include "checker_bonus.h"
+
+int	exec_instruction(char *instruction, t_stacks *stacks)
+{
+	if (ft_strncmp(instruction, "sa\n", 3))
+		sa(stacks);
+	else if (ft_strncmp(instruction, "sb\n", 3))
+		sb(stacks);
+	else if (ft_strncmp(instruction, "ss\n", 3))
+		ss(stacks);
+	else if (ft_strncmp(instruction, "pa\n", 3))
+		pa(stacks);
+	else if (ft_strncmp(instruction, "pb\n", 3))
+		pb(stacks);
+	else if (ft_strncmp(instruction, "ra\n", 3))
+		ra(stacks);
+	else if (ft_strncmp(instruction, "rb\n", 3))
+		rb(stacks);
+	else if (ft_strncmp(instruction, "rr\n", 3))
+		rr(stacks);
+	else if (ft_strncmp(instruction, "rra\n", 4))
+		rra(stacks);
+	else if (ft_strncmp(instruction, "rrb\n", 4))
+		rrb(stacks);
+	else if (ft_strncmp(instruction, "rrr\n", 4))
+		rrr(stacks);
+	else
+		return (0);
+	return (1);
+}
+
+int	main(int ac, char **av)
+{
+	char		*stdin;
+	t_stacks	stacks;
+
+	init_stacks(&stacks);
+	parse(ac, av, 1, &stacks);
+	stdin = get_next_line(0);
+	// check si les arguments sont correctes comme dans
+	// le programme push_swap de base
+	// sinon printf Error\n
+	// creer comme dans push_swap les deux stacks (normalement fait quand
+	// on fait le parsing des args)
+	// recuperer la liste d'instruction (split sur \n ?) via le stdin (avec GNL)
+	// pour chaque instruction, effectuer la vraie instruction sur les stacks
+	// en checkant si elle existe sinon printf Error\n
+	// une fois qu'on a effectue toutes les instructions,
+	// on check si la liste est triee (is_stack_sorted dans stacks_utils.c)
+	// si triee printf OK\n
+	// sinon printf KO\n
+	// (on a deja toutes les fonctions pour ca suffit juste des les copier
+	// dans des fichies NOM_bonus.c et des les utiliser correctement
+	while (stdin)
+	{
+		if (!exec_instruction(stdin, &stacks))
+			return (exit_safe(NULL, &stacks, EXIT_FAILURE));
+		free(stdin);
+		stdin = get_next_line(0);
+	}
+	if (!is_stack_sorted(stacks))
+		write(1, "KO\n", 3);
+	else
+		write(1, "OK\n", 3);
+	return (exit_safe(NULL, &stacks, EXIT_SUCCESS));
+}
