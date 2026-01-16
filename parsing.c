@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:27:05 by cpietrza          #+#    #+#             */
-/*   Updated: 2026/01/16 10:24:29 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:29:18 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	action_parse(int is_last, char *arg, char **res, t_stacks *stacks)
 
 	tmp = *res;
 	*res = ft_strjoin(*res, arg);
+	free(tmp);
 	if (!*res)
 		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
-	free(tmp);
 	if (!is_last)
 	{
 		tmp = *res;
