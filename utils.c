@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:11:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 14:18:19 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:48:52 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_atoi_ovrflw(const char *nptr, char **stack_list, t_stacks *stacks)
 		if ((m == 1 && n > 2147483647) || (m == -1 && n > 2147483648))
 			return (exit_safe(stack_list, stacks, EXIT_FAILURE));
 	}
+	if (nptr[i])
+		return (exit_safe(stack_list, stacks, EXIT_FAILURE));
 	return (n * m);
 }
 
