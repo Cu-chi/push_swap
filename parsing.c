@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpietrza <cpietrza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:27:05 by cpietrza          #+#    #+#             */
-/*   Updated: 2026/01/15 21:58:29 by cpietrza         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:56:45 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ void	check_parse(char **av, char *res, t_stacks *stacks, int counter)
 	if (*av[counter] == '\0')
 	{
 		free(res);
-		exit_safe(NULL, stacks, EXIT_FAILURE);
+		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
 		return ;
 	}
 }
+
 void	action_parse(int ac, char **av, int counter, char **res)
 {
 	char	*tmp;
@@ -58,6 +59,7 @@ void	action_parse(int ac, char **av, int counter, char **res)
 	}
 	counter++;
 }
+
 char	*parse(int ac, char **av, int counter, t_stacks *stacks)
 {
 	char	*res;
@@ -67,7 +69,7 @@ char	*parse(int ac, char **av, int counter, t_stacks *stacks)
 	res = ft_strdup("");
 	if (!res)
 	{
-		exit_safe(NULL, stacks, EXIT_FAILURE);
+		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
 		return (NULL);
 	}
 	while (counter < ac)
@@ -79,7 +81,7 @@ char	*parse(int ac, char **av, int counter, t_stacks *stacks)
 	if (!create_stacks(res, stacks, 0))
 	{
 		free(res);
-		exit_safe(NULL, stacks, EXIT_FAILURE);
+		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
 		return (NULL);
 	}
 	return (res);

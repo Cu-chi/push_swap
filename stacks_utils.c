@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 10:57:44 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 13:45:14 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:55:31 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	create_stack_node(char *str_value, char **stack_list, t_stacks *stacks)
 
 	tmp = ft_stacknew(ft_atoi_ovrflw(str_value, stack_list, stacks));
 	if (!tmp)
-		return (exit_safe(stack_list, stacks, EXIT_FAILURE));
+		return (exit_safe(stack_list, stacks, NULL, EXIT_FAILURE));
 	ft_stackadd_back(&stacks->a, tmp);
 	stacks->nb_values++;
 	return (1);

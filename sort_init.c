@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium_preprocess.c                                :+:      :+:    :+:   */
+/*   sort_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:54:57 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 18:54:40 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:55:22 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	*preprocess_values(t_stacks *stacks)
 	i = 0;
 	if (!tab)
 	{
-		exit_safe(NULL, stacks, EXIT_FAILURE);
+		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
 		return (NULL);
 	}
 	populate_tab(tab, stacks);

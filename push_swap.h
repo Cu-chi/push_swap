@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpietrza <cpietrza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 21:58:37 by cpietrza         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:59:11 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int					ft_atoi_ovrflw(const char *nptr, char **stack_list,
 						t_stacks *stacks);
 void				free_stacks(t_stacks *stacks);
 void				print_stacks(t_stacks stacks);
-int					exit_safe(char **stack_list, t_stacks *stacks, int fail);
+int					exit_safe(char **stack_list, t_stacks *stacks,
+						t_arguments *args, int fail);
 void				free_stack_list(char **stack_list);
 int					create_stack_node(char *str_value, char **stack_list,
 						t_stacks *stacks);
@@ -73,6 +74,7 @@ int					args_checker(int ac, char **av, t_arguments *args,
 						t_stacks *stacks);
 float				compute_disorder(t_stacks *stacks);
 char				*benchmark_strategy(t_arguments args, t_stacks stacks);
+void				benchmark(t_arguments args, t_stacks stacks);
 
 void				sa(t_stacks *stacks, char ss);
 void				sb(t_stacks *stacks, char ss);

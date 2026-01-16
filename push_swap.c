@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpietrza <cpietrza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/15 21:58:45 by cpietrza         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:57:34 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	args_checker(int ac, char **av, t_arguments *args, t_stacks *stacks)
 	}
 	parse(ac, av, counter, stacks);
 	return (1);
-	// return (create_stacks(ac, av, stacks, counter));
 }
 
 void	benchmark(t_arguments args, t_stacks stacks)
@@ -114,10 +113,9 @@ int	main(int ac, char **av)
 	init_args(&args);
 	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
-		return (exit_safe(NULL, &stacks, EXIT_FAILURE));
-	
+		return (exit_safe(NULL, &stacks, NULL, EXIT_FAILURE));
 	if (is_stack_sorted(stacks))
-		return (0);
+		return (exit_safe(NULL, &stacks, &args, EXIT_SUCCESS));
 	stacks.disorder = compute_disorder(&stacks);
 	if (args.simple || (stacks.disorder < 0.2f && !args.medium
 			&& !args.complex))
@@ -127,9 +125,5 @@ int	main(int ac, char **av)
 		chunk_based_sort(&stacks);
 	else if (args.complex || stacks.disorder >= 0.5f)
 		lsb_radix_sort(&stacks);
-	if (args.bench)
-		benchmark(args, stacks);
-	print_stacks(stacks);
-	free_stacks(&stacks);
-	return (0);
+	return (exit_safe(NULL, &stacks, &args, EXIT_SUCCESS));
 }
