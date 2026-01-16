@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:27:05 by cpietrza          #+#    #+#             */
-/*   Updated: 2026/01/16 08:56:45 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:24:29 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	create_stacks(char *res, t_stacks *stacks, int counter)
 	char	**stack_list;
 
 	stack_list = ft_split(res, ' ');
+	free(res);
 	if (!stack_list)
 		return (0);
 	counter = 0;
@@ -40,27 +41,29 @@ void	check_parse(char **av, char *res, t_stacks *stacks, int counter)
 	{
 		free(res);
 		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
-		return ;
 	}
 }
 
-void	action_parse(int ac, char **av, int counter, char **res)
+void	action_parse(int is_last, char *arg, char **res, t_stacks *stacks)
 {
 	char	*tmp;
 
 	tmp = *res;
-	*res = ft_strjoin(*res, av[counter]);
+	*res = ft_strjoin(*res, arg);
+	if (!*res)
+		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
 	free(tmp);
-	if (counter != ac - 1)
+	if (!is_last)
 	{
 		tmp = *res;
 		*res = ft_strjoin(tmp, " ");
 		free(tmp);
+		if (!*res)
+			exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
 	}
-	counter++;
 }
 
-char	*parse(int ac, char **av, int counter, t_stacks *stacks)
+void	parse(int ac, char **av, int counter, t_stacks *stacks)
 {
 	char	*res;
 	int		check;
@@ -68,21 +71,13 @@ char	*parse(int ac, char **av, int counter, t_stacks *stacks)
 	check = counter;
 	res = ft_strdup("");
 	if (!res)
-	{
 		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
-		return (NULL);
-	}
 	while (counter < ac)
 	{
 		check_parse(av, res, stacks, counter);
-		action_parse(ac, av, counter, &res);
+		action_parse(!(counter - ac - 1), av[counter], &res, stacks);
 		counter++;
 	}
 	if (!create_stacks(res, stacks, 0))
-	{
-		free(res);
 		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
-		return (NULL);
-	}
-	return (res);
 }

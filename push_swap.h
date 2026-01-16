@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:07:13 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/16 08:59:11 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:22:58 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,11 @@ void				rrb(t_stacks *stacks, char rrr);
 void				rrr(t_stacks *stacks);
 
 int					create_stacks(char *res, t_stacks *stacks, int counter);
-char				*parse(int ac, char **av, int counter, t_stacks *stacks);
+void				parse(int ac, char **av, int counter, t_stacks *stacks);
 void				check_parse(char **av, char *res, t_stacks *stacks,
 						int counter);
-void				action_parse(int ac, char **av, int counter, char **res);
+void				action_parse(int is_last, char *arg, char **res,
+						t_stacks *stacks);
 
 int					is_stack_sorted(t_stacks stacks);
 // simple sort
