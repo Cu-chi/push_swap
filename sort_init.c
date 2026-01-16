@@ -53,11 +53,9 @@ int	*preprocess_values(t_stacks *stacks)
 {
 	int	*tab;
 	int	size;
-	int	i;
 
 	size = stacks->nb_values;
 	tab = malloc(sizeof(int) * size);
-	i = 0;
 	if (!tab)
 	{
 		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);

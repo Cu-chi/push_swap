@@ -66,9 +66,7 @@ void	action_parse(int is_last, char *arg, char **res, t_stacks *stacks)
 void	parse(int ac, char **av, int counter, t_stacks *stacks)
 {
 	char	*res;
-	int		check;
 
-	check = counter;
 	res = ft_strdup("");
 	if (!res)
 		exit_safe(NULL, stacks, NULL, EXIT_FAILURE);
