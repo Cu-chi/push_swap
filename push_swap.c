@@ -6,37 +6,11 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/16 08:57:34 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:34:08 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	create_stacks(int ac, char **av, t_stacks *stacks, int counter)
-// {
-// 	char	**stack_list;
-
-// 	stack_list = NULL;
-// 	if (counter + 1 == ac)
-// 	{
-// 		stack_list = ft_split(av[counter], ' ');
-// 		if (!stack_list)
-// 			return (0);
-// 		counter = 0;
-// 	}
-// 	if (stack_list)
-// 	{
-// 		while (stack_list[counter])
-// 			create_stack_node(stack_list[counter++], stack_list, stacks);
-// 		free_stack_list(stack_list);
-// 		return (1);
-// 	}
-// 	while (counter < ac && av[counter])
-// 		create_stack_node(av[counter++], stack_list, stacks);
-// 	if (check_duplicates(stacks))
-// 		return (0);
-// 	return (1);
-// }
 
 int	args_checker(int ac, char **av, t_arguments *args, t_stacks *stacks)
 {
@@ -110,6 +84,8 @@ int	main(int ac, char **av)
 	t_arguments	args;
 	t_stacks	stacks;
 
+	if (ac == 1)
+		return (0);
 	init_args(&args);
 	init_stacks(&stacks);
 	if (args_checker(ac, av, &args, &stacks) == 0)
