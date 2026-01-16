@@ -1,11 +1,11 @@
 [submodule "libft"]
 	path = libft
-	url = git@github.com:Cu-chi/libft.git
+	url = ../libft.git
 [submodule "ft_printf"]
 	path = ft_printf
-	url = git@github.com:Cu-chi/ft_printf.git
+	url = ../ft_printf.git
 	branch = fd
 [submodule "get_next_line"]
 	path = get_next_line
-	url = git@github.com:Cu-chi/get_next_line.git
+	url = ../get_next_line.git
 	branch = push_swap
