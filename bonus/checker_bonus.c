@@ -15,27 +15,27 @@
 
 int	exec_instruction(char *instruction, t_stacks *stacks)
 {
-	if (ft_strncmp(instruction, "sa\n", 3))
+	if (ft_strncmp(instruction, "sa\n", 3) == 0)
 		sa(stacks);
-	else if (ft_strncmp(instruction, "sb\n", 3))
+	else if (ft_strncmp(instruction, "sb\n", 3) == 0)
 		sb(stacks);
-	else if (ft_strncmp(instruction, "ss\n", 3))
+	else if (ft_strncmp(instruction, "ss\n", 3) == 0)
 		ss(stacks);
-	else if (ft_strncmp(instruction, "pa\n", 3))
+	else if (ft_strncmp(instruction, "pa\n", 3) == 0)
 		pa(stacks);
-	else if (ft_strncmp(instruction, "pb\n", 3))
+	else if (ft_strncmp(instruction, "pb\n", 3) == 0)
 		pb(stacks);
-	else if (ft_strncmp(instruction, "ra\n", 3))
+	else if (ft_strncmp(instruction, "ra\n", 3) == 0)
 		ra(stacks);
-	else if (ft_strncmp(instruction, "rb\n", 3))
+	else if (ft_strncmp(instruction, "rb\n", 3) == 0)
 		rb(stacks);
-	else if (ft_strncmp(instruction, "rr\n", 3))
+	else if (ft_strncmp(instruction, "rr\n", 3) == 0)
 		rr(stacks);
-	else if (ft_strncmp(instruction, "rra\n", 4))
+	else if (ft_strncmp(instruction, "rra\n", 4) == 0)
 		rra(stacks);
-	else if (ft_strncmp(instruction, "rrb\n", 4))
+	else if (ft_strncmp(instruction, "rrb\n", 4) == 0)
 		rrb(stacks);
-	else if (ft_strncmp(instruction, "rrr\n", 4))
+	else if (ft_strncmp(instruction, "rrr\n", 4) == 0)
 		rrr(stacks);
 	else
 		return (0);
