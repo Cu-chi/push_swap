@@ -47,6 +47,8 @@ int	main(int ac, char **av)
 	char		*stdin;
 	t_stacks	stacks;
 
+	if (ac <= 1)
+		return (0);
 	init_stacks(&stacks);
 	parse(ac, av, 1, &stacks);
 	stdin = get_next_line(0);
