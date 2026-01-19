@@ -2,4 +2,6 @@
 *.txt
 checker_linux
 push_swap
+checker
 objs/
+.bonus
