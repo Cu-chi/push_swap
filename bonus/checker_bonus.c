@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 14:56:51 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/16 14:28:16 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:38:51 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,23 @@ int	exec_instruction(char *instruction, t_stacks *stacks)
 
 int	main(int ac, char **av)
 {
-	char		*stdin;
+	char		*stdout;
 	t_stacks	stacks;
 
 	if (ac <= 1)
 		return (0);
 	init_stacks(&stacks);
 	parse(ac, av, 1, &stacks);
-	stdin = get_next_line(0);
-	while (stdin)
+	stdout = get_next_line(0);
+	while (stdout)
 	{
-		if (!exec_instruction(stdin, &stacks))
+		if (!exec_instruction(stdout, &stacks))
 		{
-			free(stdin);
+			free(stdout);
 			return (exit_safe(NULL, &stacks, EXIT_FAILURE));
 		}
-		free(stdin);
-		stdin = get_next_line(0);
+		free(stdout);
+		stdout = get_next_line(0);
 	}
 	if (!is_stack_sorted(stacks))
 		write(1, "KO\n", 3);
