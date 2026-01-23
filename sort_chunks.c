@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpietrza <cpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:34:59 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/16 12:15:43 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/23 11:13:36 by cpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sort_chunk(t_stacks *stacks, int sorting_chunk, int range, int *sorted)
 	int	nb_chunk;
 	int	current_chunk;
 	int	nb_sorted;
-	int limit;
+	int	limit;
 
 	nb_sorted = 0;
 	nb_chunk = ft_sqrt(stacks->nb_values);
