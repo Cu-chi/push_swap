@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_language_r.c                                    :+:      :+:    :+:   */
+/*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:52:48 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/12 12:13:52 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/23 17:10:53 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void	ra(t_stacks *stacks, char rr)
 	if (first == last)
 		return ;
 	second = first->next;
-	second->prev = NULL;
-	first->prev = last;
 	first->next = NULL;
 	last->next = first;
 	stacks->a = second;
@@ -51,8 +49,6 @@ void	rb(t_stacks *stacks, char rr)
 	if (first == last)
 		return ;
 	second = first->next;
-	second->prev = NULL;
-	first->prev = last;
 	first->next = NULL;
 	last->next = first;
 	stacks->b = second;

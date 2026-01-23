@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rev_rotate.c                                    :+:      :+:    :+:   */
+/*   op_rev_rotate_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 08:48:46 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/16 13:40:12 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/23 17:20:51 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+
+t_stack	*ft_stackprevlast(t_stack *stack)
+{
+	int		size;
+	t_stack	*prevlast;
+
+	prevlast = stack;
+	size = ft_stacksize(stack);
+	while (size-- > 1)
+		prevlast = prevlast->next;
+	return (prevlast);
+}
 
 void	rra(t_stacks *stacks)
 {
@@ -22,10 +34,8 @@ void	rra(t_stacks *stacks)
 	last = ft_stacklast(first);
 	if (first == last)
 		return ;
-	prev_last = last->prev;
+	prev_last = ft_stackprevlast(first);
 	prev_last->next = NULL;
-	first->prev = last;
-	last->prev = NULL;
 	last->next = first;
 	stacks->a = last;
 }
@@ -40,10 +50,8 @@ void	rrb(t_stacks *stacks)
 	last = ft_stacklast(first);
 	if (first == last)
 		return ;
-	prev_last = last->prev;
+	prev_last = ft_stackprevlast(first);
 	prev_last->next = NULL;
-	first->prev = last;
-	last->prev = NULL;
 	last->next = first;
 	stacks->b = last;
 }

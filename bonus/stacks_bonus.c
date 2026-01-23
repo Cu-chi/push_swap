@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:12:50 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/16 12:49:10 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/23 17:12:13 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_stack	*ft_stacknew(int value)
 		return (NULL);
 	nl->value = value;
 	nl->next = NULL;
-	nl->prev = NULL;
 	return (nl);
 }
 
@@ -30,8 +29,6 @@ void	ft_stackadd_front(t_stack **lst, t_stack *new)
 	if (!new)
 		return ;
 	new->next = *lst;
-	if (*lst != NULL)
-		(*lst)->prev = new;
 	*lst = new;
 }
 
@@ -67,7 +64,6 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new)
 	{
 		last = ft_stacklast(*lst);
 		last->next = new;
-		new->prev = last;
 	}
 	else
 		ft_stackadd_front(lst, new);
