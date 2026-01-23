@@ -59,9 +59,9 @@ GNL_DEPS = $(GNL_OBJS:.o=.d)
 INCLUDES_BONUS = -I bonus -I get_next_line
 SRCS_BONUS = bonus/checker_bonus.c \
 	bonus/error_bonus.c \
-	bonus/op_push_swap.c \
-	bonus/op_rev_rotate.c \
-	bonus/op_rotate.c \
+	bonus/op_push_swap_bonus.c \
+	bonus/op_rev_rotate_bonus.c \
+	bonus/op_rotate_bonus.c \
 	bonus/parsing_bonus.c \
 	bonus/stacks_bonus.c \
 	bonus/stacks_utils_bonus.c \
