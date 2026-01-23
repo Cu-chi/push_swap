@@ -39,7 +39,7 @@ void	selection_sort(t_stacks *stacks)
 	int		min_index;
 	int		reverse;
 
-	while (stacks->a)
+	while (stacks->a && stacks->a->next)
 	{
 		min_index = get_min_index(stacks->a);
 		reverse = min_index > stacks->nb_values / 2;
