@@ -3,41 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpietrza <cpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:37:10 by equentin          #+#    #+#             */
-/*   Updated: 2026/01/16 10:34:08 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/23 11:13:24 by cpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ch_dble(t_arguments *args, char c)
+{
+	if (c == 'b' && !args->bench)
+		return (0);
+	else if (c != 'b' && !args->simple && !args->medium && !args->complex
+		&& !args->adaptive)
+		return (0);
+	return (1);
+}
+
 int	args_checker(int ac, char **av, t_arguments *args, t_stacks *stacks)
 {
-	int	counter;
+	int	ctn;
 
-	if (ac <= 1)
-		return (0);
-	counter = 1;
-	while (counter < ac && av[counter][0] == '-')
+	ctn = 1;
+	while (ctn < ac && av[ctn][0] == '-' && av[ctn][1] == '-')
 	{
-		if (av[counter][1] != '-')
-			break ;
-		if (ft_strncmp(av[counter], "--bench", 8) == 0)
+		if (!ch_dble(args, 'b') && !ft_strncmp(av[ctn], "--bench", 8))
 			args->bench = 1;
-		else if (ft_strncmp(av[counter], "--simple", 9) == 0)
+		else if (!ch_dble(args, 's') && !ft_strncmp(av[ctn],
+				"--simple", 9))
 			args->simple = 1;
-		else if (ft_strncmp(av[counter], "--medium", 9) == 0)
+		else if (!ch_dble(args, 'm') && !ft_strncmp(av[ctn],
+				"--medium", 9))
 			args->medium = 1;
-		else if (ft_strncmp(av[counter], "--complex", 10) == 0)
+		else if (!ch_dble(args, 'c') && !ft_strncmp(av[ctn],
+				"--complex", 10))
 			args->complex = 1;
-		else if (ft_strncmp(av[counter], "--adaptive", 11) == 0)
+		else if (!ch_dble(args, 'a') && !ft_strncmp(av[ctn],
+				"--adaptive", 11))
 			args->adaptive = 1;
 		else
 			return (0);
-		counter++;
+		ctn++;
 	}
-	parse(ac, av, counter, stacks);
+	parse(ac, av, ctn, stacks);
 	return (1);
 }
 
