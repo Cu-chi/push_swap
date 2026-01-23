@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:27:05 by cpietrza          #+#    #+#             */
-/*   Updated: 2026/01/16 10:29:18 by equentin         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:47:31 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	create_stacks(char *res, t_stacks *stacks, int counter)
 
 	stack_list = ft_split(res, ' ');
 	free(res);
-	if (!stack_list)
+	if (!stack_list || !stack_list[0])
 		return (0);
 	counter = 0;
 	while (stack_list[counter])
