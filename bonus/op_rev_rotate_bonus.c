@@ -19,7 +19,7 @@ t_stack	*ft_stackprevlast(t_stack *stack)
 
 	prevlast = stack;
 	size = ft_stacksize(stack);
-	while (size-- > 1)
+	while (size-- > 2)
 		prevlast = prevlast->next;
 	return (prevlast);
 }
